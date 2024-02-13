@@ -1,0 +1,2 @@
+this a hr for reading and displaying output on thet terminal
+the file should be created and saved in the present working directory
