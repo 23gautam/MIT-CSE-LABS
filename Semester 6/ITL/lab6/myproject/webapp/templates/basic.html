@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>Calculate</title>
+ </head>
+ <body>
+ <script type="text/javascript"> 
+function calculate(operation)
+{ 
+    var n1 = document.getElementById("num1").value; 
+    var n2 = document.getElementById("num2").value;
+    var n3;
+    
+    switch(operation) {
+        case 'add':
+            n3 = parseInt(n1) + parseInt(n2);
+            document.getElementById("para1").innerHTML = "The sum of two numbers is " + n3;
+            break;
+        case 'subtract':
+            n3 = parseInt(n1) - parseInt(n2);
+            document.getElementById("para1").innerHTML = "The difference of two numbers is " + n3;
+            break;
+        case 'multiply':
+            n3 = parseInt(n1) * parseInt(n2);
+            document.getElementById("para1").innerHTML = "The product of two numbers is " + n3;
+            break;
+        case 'divide':
+            n3 = parseInt(n1) / parseInt(n2);
+            document.getElementById("para1").innerHTML = "The division of two numbers is " + n3;
+            break;
+        default:
+            document.getElementById("para1").innerHTML = "Invalid operation";
+            break;
+    }
+}
+ </script>
+ Enter num1: <input type="text" id="num1"><br>
+ Enter num2: <input type="text" id="num2"><br>
+ 
+ <!-- Dropdown for operations -->
+ <select id="operation">
+   <option value="add">Add</option>
+   <option value="subtract">Subtract</option>
+   <option value="multiply">Multiply</option>
+   <option value="divide">Divide</option>
+ </select>
+ 
+ <!-- Button to trigger calculation -->
+ <button onclick="calculate(document.getElementById('operation').value)">Calculate</button><br>
+ 
+ <p id="para1"></p>
+ </body>
+</html>
