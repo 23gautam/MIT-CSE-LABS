@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Leave Application Form</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" ></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $("#submit").click(() => {
+                    var name = $("#name").val();
+                    var leaveType = $("#leaveType").val();
+                    var startDate = $("#startDate").val();
+                    var endDate = $("#endDate").val();
+                    var leaveReason = $("#leaveReason").val();
+                    var location = $("input[name='location']:checked").val();
+                    var numberOfDays = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+
+                    $("#table").append(
+                        "<tr><td>"+name+"</td><td>"+leaveType+"</td><td>"+numberOfDays+"</td><td>"+startDate+"</td><td>"+endDate+"</td><td>"+leaveReason+"</td><td>"+location+"</td></tr>"           
+                    );
+                    alert("Leave Application Submitted");
+                });
+            });
+        </script>
+    </head>
+    <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+        <div class="d-flex flex-column container justify-content-center align-items-center">
+            <h1>Leave Application Form</h1>
+            <br><br>
+            <form class="row g-3 w-75">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="leaveType">Leave Type</label>
+                    <select class="form-select" id="leaveType">
+                        <option selected>Choose...</option>
+                        <option value="CL">CL</option>
+                        <option value="CPL">CPL</option>
+                        <option value="SPCL">SPCL</option>
+                        <option value="EL">EL</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate">
+                </div>
+                <div class="col-md-6">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="endDate">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="leaveReason">Leave Reason</label>
+                    <select class="form-select" id="leaveReason">
+                        <option selected>Choose...</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Official">Official</option>
+                        <option value="Study">Study</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Location of Leave</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="location" id="india" value="India">
+                        <label class="form-check-label" for="india">
+                            India
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="location" id="abroad" value="Abroad">
+                        <label class="form-check-label" for="abroad">
+                            Abroad
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+                </div>
+            </form>
+            <br><br>
+            <table class="table table-dark table-striped"> 
+                <thead> 
+                    <tr> 
+                        <th>Name</th> 
+                        <th>Leave Type</th> 
+                        <th>Number of Days</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Leave Reason</th>
+                        <th>Location</th>
+                    </tr> 
+                </thead> 
+                <tbody id="table"> 
+                    
+                </tbody> 
+            </table>
+        </div>
+    </body>
+</html>
