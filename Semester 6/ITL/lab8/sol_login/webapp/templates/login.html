@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <form name="form" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}       
+        <div style="max-width:470px; margin: 0 auto;">
+            <label for="username" style="display: block; text-align: center;">Identifiant</label>
+            <input type="text" id="username" placeholder="Identifiant" name="username" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+        </div>
+
+        <div style="max-width:470px; margin: 0 auto;">
+            <label for="contact_num" style="display: block; text-align: center;">Contact Number</label>
+            <input type="number" id="contact_num" placeholder="Contact Number" name="contact_num" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+        </div>
+
+        <div style="max-width:470px; margin: 0 auto;">
+            <button style="border: 0px; background-color: #4285F4; height: 35px; width: 80%; margin-top: 8%; margin-left: 10%;" type="submit" value="Login"><strong>Login</strong></button>
+        </div>
+    </form>
+</body>
+</html>
